@@ -7,6 +7,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script scr="webgazer.js"></script>
+    <script>
+        webgazer.setGazeListener(function(data, elapsedTime) {
+
+            console.log(elapsedTime); //elapsed time is based on time since begin was called
+        }).begin()
+            .showPredictionPoints(true)
+    </script>
   </head>
 
   <body>
