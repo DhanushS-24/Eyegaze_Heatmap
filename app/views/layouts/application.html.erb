@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
     <title>HeatMapByWebGazer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="/app/assets/stylesheets/style.css">
+    <link rel="stylesheet" href="_bootstrap.scss">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script scr="webgazer.js"></script>
-    <script>
-        webgazer.setGazeListener(function(data, elapsedTime) {
-
-            console.log(elapsedTime); //elapsed time is based on time since begin was called
-        }).begin()
-            .showPredictionPoints(true)
-    </script>
+    <script async type="text/javascript" src="/webgazer.js"></script>
   </head>
 
   <body>

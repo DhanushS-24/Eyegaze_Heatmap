@@ -1,7 +1,9 @@
 class StaticPagesController < ApplicationController
-  def home
+   def home
   end
 
   def calibration
   end
 end
+
+
