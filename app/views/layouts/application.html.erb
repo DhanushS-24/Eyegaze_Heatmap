@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
     <title>HeatMapByWebGazer</title>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" type="text/css" href="/app/assets/stylesheets/style.css">
-    <link rel="stylesheet" href="_bootstrap.scss">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script async type="text/javascript" src="/webgazer.js"></script>
+    <%= javascript_pack_tag 'webgazer', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <%= yield %>
   </body>
 </html>

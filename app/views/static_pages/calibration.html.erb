@@ -9,15 +9,11 @@ This file provides the additional features:
 Instructions on use can be found in the README repository.
 -->
 
-      <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
-
-<script src="/jquery.min.js"></script>
-        <!-- <script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script> -->
-<script src="/sweetalert.js"></script>
-        <script src="/main.js"></script>
-        <script src="/calibration.js"></script>
-        <script src="/precision_calculation.js"></script>
-        <script src="/precision_store_points.js"></script>
+<canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
+<!--<div class="titletextDiv">-->
+<!--  <h1>Тестируем загрузку джаваскриптов</h1>-->
+<!--  </div>-->
+<%= javascript_pack_tag 'StartPack', 'data-turbolinks-track': 'reload' %>
 
         <nav id="webgazerNavbar" class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
@@ -31,30 +27,28 @@ Instructions on use can be found in the README repository.
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <!-- Accuracy -->
-               <!-- <li id="Accuracy"><a>Not yet Calibrated</a></li>
+                 <!--Accuracy-->
+                <li id="Accuracy"><a>Not yet Calibrated</a></li>
                 <li onclick="Restart()"><a href="#">Recalibrate</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li>
-                  <button class="helpBtn" data-toggle="modal" data-target="#helpModal"> <a data-toggle="modal"><span class="glyphicon glyphicon-cog"></span> Help</a>
-                </button>
-                </li>-->
+                  <button class="helpBtn" data-toggle="modal" data-target="#helpModal"> <a data-toggle="modal"><span class="glyphicon glyphicon-cog"></span> Help</a></li>
               </ul>
             </div>
           </div>
         </nav>
         <!-- Calibration points -->
         <div class="calibrationDiv">
-            <input type="button" class="Calibration" id="Pt1"></input>
-            <input type="button" class="Calibration" id="Pt2"></input>
-            <input type="button" class="Calibration" id="Pt3"></input>
-            <input type="button" class="Calibration" id="Pt4"></input>
-            <input type="button" class="Calibration" id="Pt5"></input>
-            <input type="button" class="Calibration" id="Pt6"></input>
-            <input type="button" class="Calibration" id="Pt7"></input>
-            <input type="button" class="Calibration" id="Pt8"></input>
-            <input type="button" class="Calibration" id="Pt9"></input>
+            <input type="button" class="Calibration" id="Pt1">
+            <input type="button" class="Calibration" id="Pt2">
+            <input type="button" class="Calibration" id="Pt3">
+            <input type="button" class="Calibration" id="Pt4">
+            <input type="button" class="Calibration" id="Pt5">
+            <input type="button" class="Calibration" id="Pt6">
+            <input type="button" class="Calibration" id="Pt7">
+            <input type="button" class="Calibration" id="Pt8">
+            <input type="button" class="Calibration" id="Pt9">
         </div>
 
         <!-- Modal -->
@@ -64,7 +58,7 @@ Instructions on use can be found in the README repository.
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-body">
-                <img src="/app/assets/images/calibration.png" width="100%" height="100%" alt="webgazer demo instructions">
+                <img src="calibration.png" %>
               </div>
               <div class="modal-footer">
                 <button id="closeBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -76,6 +70,5 @@ Instructions on use can be found in the README repository.
         </div>
 
         <!-- Latest compiled JavaScript -->
-        <script src="/resize_canvas.js"></script>
-        <script src="/bootstrap.js"></script>
+<%= javascript_pack_tag 'LatestCompiledJS', 'data-turbolinks-track': 'reload' %>
 
