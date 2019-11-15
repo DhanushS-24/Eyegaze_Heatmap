@@ -44,3 +44,5 @@ function Restart(){
     ClearCalibration();
     PopUpInstruction();
 }
+// document.getElementById("Restbutt").addEventListener("click", Restart, false);
+
