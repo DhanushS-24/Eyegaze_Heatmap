@@ -1,5 +1,3 @@
+
 require("../components/resize_canvas")
-require("jquery.min")
-require("popper")
-require("bootstrap")
-// require("bootstrap")
+import 'bootstrap'

@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'babel-source', '~> 5.8', '>= 5.8.35'
+gem 'popper_js', '~> 1.9', '>= 1.9.9'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
