@@ -45,4 +45,5 @@ function Restart(){
     PopUpInstruction();
 }
 // document.getElementById("Restbutt").addEventListener("click", Restart, false);
-
+document.addEventListener('click', function(ev) {if(ev.target.id == 'Restbutt')Restart()});
+// $(document).on('click', '#Restbutt', Restart);
