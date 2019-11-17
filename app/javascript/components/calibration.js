@@ -14,7 +14,9 @@ function ClearCanvas(){
  * Show the instruction of using calibration at the start up screen.
  */
 
-window.PopUpInstruction = function(){
+// export function PopUpInstruction (){
+// function PopUpInstruction (){
+PopUpInstruction = function(){
     ClearCanvas();
     swal({
         title:"Calibration",
@@ -133,7 +135,9 @@ function ShowCalibrationPoint() {
  * This function clears the calibration buttons memory
  */
 
-window.ClearCalibration = function(){
+// export function ClearCalibration(){
+// function ClearCalibration(){
+ClearCalibration = function(){
     window.localStorage.clear();
     $(".Calibration").css('background-color','red');
     $(".Calibration").css('opacity',0.2);
@@ -144,6 +148,6 @@ window.ClearCalibration = function(){
 }
 
 // sleep function because java doesn't have one, sourced from http://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
-function sleep (time) {
+sleep = function(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
