@@ -39,14 +39,14 @@ li {
     padding: 15px;
     border: none;
     background: none;
-    color: #777;
+    color: #011477;
 }
 .helpBtn a {
     background: none;
-    color: #777;
+    color: #770c73;
 }
 .helpBtn a:hover {
-    color: black!important;
+    color: #b30c12 !important;
     text-decoration: none;
 }
 .modal-header {

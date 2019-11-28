@@ -10849,7 +10849,7 @@ function store_points(x, y, k) {
    /**
     * Constructs the global storage object and adds it to local storage
     */
-    function setGlobalData() {
+    function setGlobalData(){
         var storage = {
             'settings': settings,
             'data': regs[0].getData() || data

@@ -11,9 +11,9 @@ Instructions on use can be found in the README repository.
 
 <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
 <%= javascript_pack_tag 'calibrationPage' %>
-<div class="titletextDiv">
-  <h1>Тестируем загрузку джаваскриптов</h1>
-</div>
+<!--<div class="titletextDiv">-->
+<!--  <h1>Тестируем загрузку джаваскриптов</h1>-->
+<!--</div>-->
 <nav id="webgazerNavbar" class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -28,11 +28,20 @@ Instructions on use can be found in the README repository.
       <ul class="nav navbar-nav">
         <!--Accuracy-->
         <li id="Accuracy"><a>Not yet Calibrated</a></li>
-        <!--<li onclick="Restart()"><a href="#">Recalibrate</a></li>-->
+<!--        <li id="RestartRecalibtare"><a href="">Recalibrate</a></li>-->
+<!--        <li id="RestartRecalibtare"><a href="">Recalibrate</a></li>-->
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <button class="helpBtn" data-toggle="modal" data-target="#helpModal"> <a data-toggle="modal"><span class="glyphicon glyphicon-cog"></span> Help</a></li>
+<!--        <li>-->
+<!--          <button class="btn btn-primary" data-toggle="modal" data-target="#helpModal"> <a data-toggle="modal"><span class="glyphicon glyphicon-cog"></span> Recalibrate?</a></li>-->
+<!--        <li><button class="btn btn-primary">See Heatmap</button> </li>-->
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#helpModal">Recalibrate?</button>
+          <button type="button" class="btn btn-secondary" id="showheatmapbutton">HeatMap</button>
+        </div>
+
+
       </ul>
     </div>
   </div>

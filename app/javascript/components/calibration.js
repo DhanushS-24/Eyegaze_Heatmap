@@ -33,7 +33,7 @@ PopUpInstruction = function(){
 /**
  * Show the help instructions right at the start.
  */
-function helpModalShow() {
+helpModalShow = function() {
     $('#helpModal').modal('show');
 }
 
@@ -106,9 +106,10 @@ $(document).ready(function(){
                                 confirm: true,
                             }
                         }).then(isConfirm => {
-                            if (isConfirm){
+                            if (isConfirm) {
                                 //clear the calibration & hide the last middle button
                                 ClearCanvas();
+                                window.iscalibration = true;
                             } else {
                                 //use restart function to restart the calibration
                                 ClearCalibration();
@@ -126,10 +127,10 @@ $(document).ready(function(){
 /**
  * Show the Calibration Points
  */
-function ShowCalibrationPoint() {
+ShowCalibrationPoint = function() {
     $(".Calibration").show();
     $("#Pt5").hide(); // initially hides the middle button
-}
+};
 
 /**
  * This function clears the calibration buttons memory
@@ -145,9 +146,9 @@ ClearCalibration = function(){
 
     CalibrationPoints = {};
     PointCalibrate = 0;
-}
+};
 
 // sleep function because java doesn't have one, sourced from http://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 sleep = function(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
-}
+};
