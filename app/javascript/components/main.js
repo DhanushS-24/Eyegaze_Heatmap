@@ -2,6 +2,7 @@
 // import "regenerator-runtime/runtime";
 // import {ClearCalibration} from './calibration'
 // import {PopUpInstruction} from './calibration'
+var heatmapInstance = null;
 window.onload = function() {
 
     //start the webgazer tracker
@@ -9,7 +10,7 @@ window.onload = function() {
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
-            if (iscalibration) {
+            if (true || iscalibration) {
                 if (data == null) {
                     return;
                 }
@@ -22,6 +23,10 @@ window.onload = function() {
                 };
 
                 datapoints.push(point);
+                if (!!heatmapInstance){
+                    heatmapInstance.addData(datapoints);
+                }
+
                 // console.log(datapoints);
             }
            // console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
@@ -72,38 +77,43 @@ Restart = function(){
 // document.getElementById("Restbutt").addEventListener("click", Restart, false);
 document.addEventListener('click', function(ev) {if(ev.target.id == 'Restbutt')Restart()});
 // $(document).on('click', '#Restbutt', Restart);
-Heatmap = function () {
-    var config = {
-        container: document.getElementById('heatmapContainer'),
-        radius: 10,
-        maxOpacity: .5,
-        minOpacity: 0,
-        blur: .75,
-        gradient: {
-            // enter n keys between 0 and 1 here
-            // for gradient color customization
-            '.5': 'blue',
-            '.8': 'red',
-            '.95': 'white'
-        }
-    };
-    var heatmapInstance = h337.create(config);
-    heatmapInstance.addData(datapoints);
-};
-document.addEventListener('click',function(ev) {if(ev.target.id == 'showheatmapbutton')Heatmap()} )
-// var config = {
-//     container: document.getElementById('heatmapContainer'),
-//     radius: 10,
-//     maxOpacity: .5,
-//     minOpacity: 0,
-//     blur: .75,
-//     gradient: {
-//         // enter n keys between 0 and 1 here
-//         // for gradient color customization
-//         '.5': 'blue',
-//         '.8': 'red',
-//         '.95': 'white'
-//     }
+// Heatmap = function () {
+//     var config = {
+//         container: document.getElementById('heatmapContainer'),
+//         radius: 10,
+//         maxOpacity: .5,
+//         minOpacity: 0,
+//         blur: .75,
+//         gradient: {
+//             // enter n keys between 0 and 1 here
+//             // for gradient color customization
+//             '.5': 'blue',
+//             '.8': 'red',
+//             '.95': 'white'
+//         }
+//     };
+//     var heatmapInstance = h337.create(config);
+//     heatmapInstance.addData(datapoints);
 // };
-// var heatmapInstance = window.h337.create(config);
-// heatmapInstance.addData(datapoints);
+var h337 = Heatmap;
+// alert(Heatmap.h337);
+// setTimeout(function() {
+//
+// }, 60000);
+
+// document.addEventListener('click',function(ev) {if(ev.target.id == 'showheatmapbutton') Heatmap()} )
+var config = {
+    container: document.getElementById('heatmapContainer'),
+    radius: 10,
+    maxOpacity: .5,
+    minOpacity: 0,
+    blur: .75,
+    gradient: {
+        // enter n keys between 0 and 1 here
+        // for gradient color customization
+        '.5': 'blue',
+        '.8': 'red',
+        '.95': 'white'
+    }
+};
+var heatmapInstance = h337.create(config);

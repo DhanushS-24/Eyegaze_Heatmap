@@ -60,7 +60,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (9.7.1)
       execjs
-    babel-source (5.8.35)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -200,7 +199,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails (~> 9.7, >= 9.7.1)
-  babel-source (~> 5.8, >= 5.8.35)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3, >= 4.3.1)
   byebug
