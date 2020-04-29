@@ -1,5 +1,5 @@
 var app = angular.module('PredictionApp', ['ngRoute']);
-app.config(function ($routeProvider) {
+app.config( function ($routeProvider) {
     $routeProvider
         .when('/calibration', {
             controller: 'CalibrationController',

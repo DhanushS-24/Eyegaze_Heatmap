@@ -108,7 +108,7 @@ $(document).ready(function(){
                       }).then(isConfirm => {
                           if (isConfirm){
                               console.log("was",window.location.pathname);
-                             window.location.href= "./views/prediction.html";
+                             window.location.href= "../../views/workspace.html";
                               console.log("is",window.location.pathname);
                             //clear the calibration & hide the last middle button
                             ClearCanvas();
