@@ -1,32 +1,80 @@
-app.controller('WorkspaceController', ['$scope', '$heatmap', function($scope, $heatmap) {
+app.controller('WorkspaceController', ['$scope', function ($scope) {
+    // create configuration object
+    var xprediction = 0;
+    var yprediction = 0;
+    //до сюда работает
 
-        function generateRandomData(len) {
-            var max = 100;
-            var min = 1;
-            var maxX = document.body.clientWidth;
-            var maxY = document.body.clientHeight;
-            var data = [];
-            while (len--) {
-                data.push({
-                    x: ((Math.random() * maxX) >> 0),
-                    y: ((Math.random() * maxY) >> 0),
-                    radius: ((Math.random() * 50 + min) >> 0)
-                });
+
+        //start the webgazer tracker
+        webgazer.setGazeListener(function (data, elapsedTime) {
+            if (data == null) {
+                return;
             }
-            return {
-                max: max,
-                min: min,
-                data: data
-            }
+            xprediction = data.x; //these x coordinates are relative to the viewport
+            //console.log(xprediction) Дату показывает!
+            yprediction = data.y; //these y coordinates are relative to the viewport
+            //console.log(yprediction)
+            //console.log(elapsedTime); //elapsed time is based on time since begin was called
+            var dataPoint = {
+                x: xprediction, // x coordinate of the datapoint, a number
+                y: yprediction, // y coordinate of the datapoint, a number
+                value: 100 // the value at datapoint(x, y)
+            };
+            //console.log(dataPoint);
+            heatmapInstance.addData(dataPoint);
+            heatmapInstance.setDataMax(100);
+            //  heatmapInstance.repaint();
+        }).begin()
+            .showPredictionPoints(true);
+
+
+        //Set up the webgazer video feedback.
+        var setup = function () {
+
+            //Set up the main canvas. The main canvas is used to calibrate the webgazer.
+            var canvas = document.getElementById("plotting_canvas");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            canvas.style.position = 'fixed';
         };
 
-        $scope.heatmapData = generateRandomData(1000);
-        $scope.heatmapConfig = {
-            blur: .9,
-            opacity:.5
-        };
-
-        $scope.updateData = function() {
-            $scope.heatmapData = generateRandomData(1000);
+        function checkIfReady() {
+            if (webgazer.isReady()) {
+                setup();
+            } else {
+                setTimeout(checkIfReady, 100);
+            }
         }
+
+        setTimeout(checkIfReady, 100);
+
+        // create configuration object
+    var config = {
+        container: document.getElementById('heatMap'),
+        radius: 10,
+        maxOpacity: .5,
+        minOpacity: 0,
+        blur: .75
+    };
+// create heatmap with configuration
+    var heatmapInstance = h337.create(config);
+        var heatmapInstance = h337.create(config);
+        // create heatmap with configuration
+        // var dataPoint = {
+        //     x: xprediction, // x coordinate of the datapoint, a number
+        //     y: yprediction, // y coordinate of the datapoint, a number
+        //     value: 100 // the value at datapoint(x, y)
+        // };
+        // heatmapInstance.addData(dataPoint);
+        // var data = {
+        //     max: 100,
+        //     min: 0,
+        //     data: [
+        //         dataPoint, dataPoint, dataPoint, dataPoint
+        //     ]
+        // };
+        // heatmapInstance.setData(data);
+        // heatmapInstance.setDataMin(0);
+        // heatmapInstance.repaint();
+
 }]);

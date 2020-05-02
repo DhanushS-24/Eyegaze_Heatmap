@@ -105,3 +105,9 @@ li {
     bottom:2vw;
     right:2vw;
 }
+
+#heatMap {
+    /*    !*background-image: url(HinckleyTown.jpg);*!*/
+    height: 2000px;
+    width: 2000px;
+}
