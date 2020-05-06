@@ -1,5 +1,5 @@
-window.onload = function () {
-
+app.service('startingWebGazer',function () {
+.onload = function () {
     //start the webgazer tracker
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
@@ -8,10 +8,21 @@ window.onload = function () {
             //console.log(data.x);
             //};/* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
             //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
+            if (data != null) {
+                return data;
+                console.log('eto factory retutn daty');
+            }
+            let k = 1;
+            console.log('data before begin',data);
+            console.log('eto factory is working', k);
+
         })
         .begin()
         .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
 
+let k = 1;
+console.log('after begin script is using', k);
+k++;
 
     //Set up the webgazer video feedback.
     var setup = function () {
@@ -35,8 +46,9 @@ window.onload = function () {
 
 };
 
-window.onbeforeunload = function () {
-    console.log('user want to left the page');
-    //webgazer.end(); //Uncomment if you want to save the data even if you reload the page.
-    window.localStorage.clear(); //Comment out if you want to save data across different sessions
-}
+    window.onbeforeunload = function () {
+        console.log('user want to left the page');
+        //webgazer.end(); //Uncomment if you want to save the data even if you reload the page.
+        window.localStorage.clear(); //Comment out if you want to save data across different sessions
+    }
+});

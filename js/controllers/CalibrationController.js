@@ -1,4 +1,4 @@
-app.controller('CalibrationController', ['$scope', function ($scope) {
+app.controller('CalibrationController', ['$scope', 'startingWebGazer',function ($scope, startingWebGazer) {
     var PointCalibrate = 0;
     var CalibrationPoints = {};
 

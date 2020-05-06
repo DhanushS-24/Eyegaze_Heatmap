@@ -1,18 +1,21 @@
-app.controller('WorkspaceController', ['$scope', function ($scope) {
+app.controller('WorkspaceController', ['$scope','startingWebGazer', function ($scope, startingWebGazer) {
     // create configuration object
-    var xprediction = 0;
-    var yprediction = 0;
+    $scope.startingWebGazer = startingWebGazer;
+    var xprediction = startingWebGazer.x;
+    var yprediction = startingWebGazer.y;
     //до сюда работает
-
+    console.log('WorkspaceController rabotaet');
+console.log(xprediction);
+console.log(yprediction);
 
         //start the webgazer tracker
-        webgazer.setGazeListener(function (data, elapsedTime) {
-            if (data == null) {
-                return;
-            }
-            xprediction = data.x; //these x coordinates are relative to the viewport
-            //console.log(xprediction) Дату показывает!
-            yprediction = data.y; //these y coordinates are relative to the viewport
+        // webgazer.setGazeListener(function (data, elapsedTime) {
+        //     if (data == null) {
+        //         return;
+        //     }
+        //     xprediction = data.x; //these x coordinates are relative to the viewport
+        //     console.log(xprediction) Дату показывает!
+            // yprediction = data.y; //these y coordinates are relative to the viewport
             //console.log(yprediction)
             //console.log(elapsedTime); //elapsed time is based on time since begin was called
             var dataPoint = {
@@ -21,15 +24,14 @@ app.controller('WorkspaceController', ['$scope', function ($scope) {
                 value: 100 // the value at datapoint(x, y)
             };
             //console.log(dataPoint);
-            heatmapInstance.addData(dataPoint);
-            heatmapInstance.setDataMax(100);
+
             //  heatmapInstance.repaint();
-        }).begin()
-            .showPredictionPoints(true);
+        // }).begin()
+        //     .showPredictionPoints(true);
 
 
         //Set up the webgazer video feedback.
-        var setup = function () {
+   /*     var setup = function () {
 
             //Set up the main canvas. The main canvas is used to calibrate the webgazer.
             var canvas = document.getElementById("plotting_canvas");
@@ -47,7 +49,7 @@ app.controller('WorkspaceController', ['$scope', function ($scope) {
         }
 
         setTimeout(checkIfReady, 100);
-
+*/
         // create configuration object
     var config = {
         container: document.getElementById('heatMap'),
@@ -76,5 +78,7 @@ app.controller('WorkspaceController', ['$scope', function ($scope) {
         // heatmapInstance.setData(data);
         // heatmapInstance.setDataMin(0);
         // heatmapInstance.repaint();
+    heatmapInstance.addData(dataPoint);
+    heatmapInstance.setDataMax(100);
 
 }]);
