@@ -1,7 +1,8 @@
 app.controller('CalibrationController', ['$scope', 'startingWebGazer',function ($scope, startingWebGazer) {
+
+    $scope.startingWebGazer = startingWebGazer.startgazer();
     var PointCalibrate = 0;
     var CalibrationPoints = {};
-
     /**
      * Clear the canvas and the calibration button.
      */
