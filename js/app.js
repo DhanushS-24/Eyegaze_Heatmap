@@ -1,4 +1,4 @@
-var app = angular.module('PredictionApp', ['ngRoute', 'heatmap']);
+var app = angular.module('PredictionApp', ['ngRoute']);
 app.config( function ($routeProvider) {
     $routeProvider
         .when('/calibration', {
