@@ -1,34 +1,50 @@
 app.controller('WorkspaceController', ['$scope', function ($scope) {
-    // create configuration object
-    let datapoint = {};
     let datapoints = [];
-    let index = 0;
+
+    let max = 0;
+
     var config = {
         container: document.querySelector('.heatmap'),
-        radius: 90,
+        radius: 50,
     };
+
     var heatmapInstance = h337.create(config);
     webgazer.setGazeListener(function (data, elapsedTime) {
+
+        let valpoint = 0;
+
         if (data == null) {
             return;
         }
-        heatmapInstance.addData({
-            x: data.x,
-            y: data.y,
-            value:1
-        });
-        // console.log(datapoint)
-       // datapoints.push(datapoint);
-       //
-       //  index = index + 1;
-       //  if (index == 20) {
-       //      heatmapInstance.addData(datapoints);
-       //      console.log('in index',datapoints);
-       //      index = 0;
-       //  }
-       //  // console.log(datapoints)
-       //  //heatmapInstance.addData(datapoint);
+
+        datapoints.push({
+            x:data.x,
+            y:data.y,
+            value:16
+        })
+
+        datapoints.forEach((item) =>{
+            for(let i = -config.radius; i < config.radius; i++){
+                for(let j = -config.radius; j < config.radius; j++){
+                    try {
+                        if ((item.x + i) === data.x && (item.y + j) === data.y) {
+                            valpoint = valpoint + 1;
+                        }
+                    } catch (e) {
+                        console.log(e);
+                    }
+
+                }
+            }
+        })
+        max = Math.max(max, valpoint);
+
+             let heatmap = {
+                 max: max,
+                 min: 0,
+                 data: datapoints
+             };
+             heatmapInstance.setData(heatmap);
 
     });
-
 }]);

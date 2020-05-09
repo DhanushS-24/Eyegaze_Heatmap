@@ -37,7 +37,11 @@ app.controller('CalibrationController', ['$scope', 'startingWebGazer',function (
     function ClearCanvas() {
         $(".Calibration").hide();
         var canvas = document.getElementById("plotting_canvas");
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        try {
+            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        } catch {
+
+        }
     }
 
     /**
