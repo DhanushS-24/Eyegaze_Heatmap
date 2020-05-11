@@ -105,6 +105,20 @@ li {
     bottom:2vw;
     right:2vw;
 }
-.demo-wrapper { height:700px; background:rgba(0,0,0,.03); border:3px solid black; }
-.heatmap {position: relative; width:100%; height:100%; }
-.zone {margin-left: 350px}
+.demo-wrapper {
+    height:1700px;
+    background:rgba(0,0,0,.03);
+    border:3px solid black;
+    width: 100%;
+    min-width: 600px;
+    position: relative;
+}
+.heatmap {
+    position: absolute;
+    width:100%;
+    height:100%;
+}
+.zone {
+    margin-left: 30vw;
+    background-color: red;
+}

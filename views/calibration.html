@@ -1,39 +1,4 @@
-<!--<button style="position: absolute; top: 10px; right: 10px; z-index: 100;" ng-click="start();">
-	Start({{data.length}})
-</button>
-<button style="position: absolute; top: 10px; right: 100px; z-index: 100;" ng-click="drawHeatmap();">
-	DrawHeatMap
-</button>
-<table style="font-size: 9px; width: 100vw; height: 100vh; background: rgba(40,40,40,0.3); position: absolute; top: 0; left: 0; pointer-events: none;">
-     {{array}}
-	<tr ng-repeat="x in array track by $index">
-		<td style="background-color: rgba(0,0,0,{{y*1.0/maxNum}});" ng-repeat="y in x track by $index"></td>
-	</tr>
-</table> -->
 <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
-
-<!--<nav id="webgazerNavbar" class="navbar navbar-default navbar-fixed-top">-->
-<!--	<div class="container-fluid">-->
-<!--		<div class="navbar-header">-->
-<!--			&lt;!&ndash; The hamburger menu button &ndash;&gt;-->
-<!--			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
-<!--				<span class="icon-bar"></span>-->
-<!--				<span class="icon-bar"></span>-->
-<!--				<span class="icon-bar"></span>-->
-<!--			</button>-->
-<!--		</div>-->
-<!--		<div class="collapse navbar-collapse" id="myNavbar">-->
-<!--			<ul class="nav navbar-nav">-->
-<!--				&lt;!&ndash; Accuracy &ndash;&gt;-->
-<!--				<li id="Accuracy"><a>Not yet Calibrated</a></li>-->
-<!--				<li ng-click="helpModalShow()"><a href="#/calibration">Recalibrate</a></li>-->
-<!--			</ul>-->
-<!--			<ul class="nav navbar-nav navbar-right">-->
-<!--				<li><button class="helpBtn" data-toggle="modal" data-target="#helpModal"></button><a data-toggle="modal"><span class="glyphicon glyphicon-cog"></span> Help</a></li>-->
-<!--			</ul>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--</nav>-->
 <!-- Calibration points -->
 <div class="calibrationDiv">
 	<input type="button" class="Calibration" id="Pt1"></input>

@@ -17,12 +17,17 @@ app.controller('WorkspaceController', ['$scope', function ($scope) {
             return;
         }
 
+        //let scrolltop = $(document).scrollTop();
+        try {
+            let elem = document.querySelector('.heatmap').getBoundingClientRect()
+
+
+
         datapoints.push({
-            x:data.x,
-            y:data.y,
+            x: (data.x - elem.left),//these x coordinates are relative to the viewport
+            y: (data.y - elem.top),//these y coordinates are relative to the viewport
             value:16
         })
-
         datapoints.forEach((item) =>{
             for(let i = -config.radius; i < config.radius; i++){
                 for(let j = -config.radius; j < config.radius; j++){
@@ -45,6 +50,9 @@ app.controller('WorkspaceController', ['$scope', function ($scope) {
                  data: datapoints
              };
              heatmapInstance.setData(heatmap);
+        } catch (e) {
+            console.log(e)
+        }
 
     });
 }]);
