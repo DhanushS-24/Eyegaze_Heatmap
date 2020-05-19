@@ -1,4 +1,4 @@
-app.controller('CalibrationController', ['$scope', 'startingWebGazer',function ($scope, startingWebGazer) {
+app.controller('CalibrationController', ['$scope', 'startingWebGazer', function ($scope, startingWebGazer) {
 
     window.onload = function () {
         $scope.startingWebGazer = startingWebGazer.startgazer();
@@ -32,6 +32,7 @@ app.controller('CalibrationController', ['$scope', 'startingWebGazer',function (
 
     var PointCalibrate = 0;
     var CalibrationPoints = {};
+
     /**
      * Clear the canvas and the calibration button.
      */
@@ -67,7 +68,7 @@ app.controller('CalibrationController', ['$scope', 'startingWebGazer',function (
     /**
      * Show the help instructions right at the start.
      */
-     $scope.helpModalShow = function() {
+    $scope.helpModalShow = function () {
         $('#helpModal').modal('show');
     }
 
@@ -83,26 +84,24 @@ app.controller('CalibrationController', ['$scope', 'startingWebGazer',function (
 
             var id = $(this).attr('id');
 
-            //временно
-            // PointCalibrate = 10;
-            if (!CalibrationPoints[id]){ // initialises if not done
-              CalibrationPoints[id]=0;
+            if (!CalibrationPoints[id]) { // initialises if not done
+                CalibrationPoints[id] = 0;
             }
             CalibrationPoints[id]++; // increments values
 
-            if (CalibrationPoints[id]==5){ //only turn to yellow after 5 clicks
-              $(this).css('background-color','yellow');
-              $(this).prop('disabled', true); //disables the button
-              PointCalibrate++;
-            }else if (CalibrationPoints[id]<5){
-              //Gradually increase the opacity of calibration points when click to give some indication to user.
-              var opacity = 0.2*CalibrationPoints[id]+0.2;
-              $(this).css('opacity',opacity);
+            if (CalibrationPoints[id] == 5) { //only turn to yellow after 5 clicks
+                $(this).css('background-color', 'yellow');
+                $(this).prop('disabled', true); //disables the button
+                PointCalibrate++;
+            } else if (CalibrationPoints[id] < 5) {
+                //Gradually increase the opacity of calibration points when click to give some indication to user.
+                var opacity = 0.2 * CalibrationPoints[id] + 0.2;
+                $(this).css('opacity', opacity);
             }
 
             //Show the middle calibration point after all other points have been clicked.
-            if (PointCalibrate == 8){
-              $("#Pt5").show();
+            if (PointCalibrate == 8) {
+                $("#Pt5").show();
             }
             if (PointCalibrate >= 9) { // last point is calibrated
                 //using jquery to grab every element in Calibration class and hide them except the middle point.
@@ -126,7 +125,6 @@ app.controller('CalibrationController', ['$scope', 'startingWebGazer',function (
                     $(document).ready(function () {
 
                         store_points_variable(); // start storing the prediction points
-//sleeptime must be 5000
                         sleep(5000).then(() => {
                             stop_storing_points_variable(); // stop storing the prediction points
                             var past50 = get_points() // retrieve the stored points
