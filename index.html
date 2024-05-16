@@ -18,7 +18,66 @@
 		<div class="navbar-header">
 			<!-- The hamburger menu button -->
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
+				<span class="icon-bar"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HeatMapByWebGazer</title>
+    <!-- styles files -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- the most important scripts -->
+    <script async src="./js/src/webgazer.js"></script>
+    <script src="./js/vendor/sweetalert.min.js"></script>
+    <script src="./js/vendor/jquery.min.js"></script>
+    <!-- AngularJS -->
+    <script src="./js/vendor/angular.min.js"></script>
+    <style>
+        body {
+            background-image: url('AOI.jpg');
+            background-size: cover;
+            overflow: hidden; /* Set overflow to hidden to disable scrolling */
+        }
+    </style>
+</head>
+<nav id="webgazerNavbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <!-- The hamburger menu button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <!-- Accuracy -->
+                <li id="Accuracy"><a>Not yet Calibrated</a></li>
+                <li ng-click="helpModalShow()"><a href="#/calibration">Recalibrate</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<body ng-app="PredictionApp">
+<div ng-view></div>
+
+
+<!-- Modules -->
+<script src="./js/app.js"></script>
+<!-- Controllers -->
+<script src="./js/controllers/CalibrationController.js"></script>
+<script src="./js/controllers/WorkspaceController.js"></script>
+<!-- services -->
+<script src="./js/services/startingWebGazer.js"></script>
+<script src="./js/services/heatmap.js"></script>
+<script src="./js/vendor/angular-route.min.js"></script>
+
+<!-- Other scripts -->
+<script src="./js/vendor/bootstrap.min.js"></script>
+</body>
+</html>
+</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
